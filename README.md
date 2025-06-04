@@ -1,235 +1,140 @@
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Phoenix Capital Limited</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
 
-    .navbar {
-      background-color: #2c3e50;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
+    /* Hide old logo */
     .logo {
-      height: 50px;
+      display: none;
     }
 
-    .navbar ul {
-      list-style: none;
+    /* Header */
+    header.site-header {
       display: flex;
-      gap: 20px;
-    }
-
-    .navbar ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .navbar ul li a:hover {
-      background-color: #34495e;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    section { margin-bottom: 40px; }
-    h1, h2 { color: #2c3e50; margin-bottom: 10px; }
-
-    ul.services {
-      list-style: square;
-      margin-left: 20px;
-    }
-
-    a.whatsapp {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    a.whatsapp:hover { background-color: #1ebd5a; }
-
-    /* Loan Form Styling */
-    #form form {
-      background: white;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #form label {
-      display: block;
-      margin-top: 15px;
-    }
-
-    #form input, #form select, #form textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    #form button {
-      margin-top: 20px;
-      background-color: #2c3e50;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #form button:hover { background-color: #34495e; }
-
-    footer {
-      background-color: #2c3e50;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 0 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     }
 
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-      }
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
 
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
+    .hero .tagline {
+      font-size: 1.5rem;
+      margin-top: 12px;
+      font-style: italic;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    /* Main container */
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea {
+      padding: 10px;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      border-color: #1e3c72;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background: #1e3c72;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: #16325c;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <nav class="navbar">
-      <img src="logo.png" alt="Phoenix Capital Logo" class="logo" />
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Our Loans</a></li>
-        <li><a href="#form">Apply</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="hero">
+      <h1>Phoenix Capital</h1>
+      <p class="tagline">Fueling Your Financial Renaissance</p>
+    </div>
   </header>
 
   <main>
-    <section id="home">
-      <h1>Welcome to Phoenix Capital Limited</h1>
-      <p>Your trusted partner in financial solutions.</p>
-    </section>
-
-    <section id="services">
-      <h2>Our Loan Services</h2>
-      <ul class="services">
-        <li>Logbook Loans</li>
-        <li>Morti-Fix Loans</li>
-        <li>Asset Financing for Vehicles</li>
-        <li>Buy Off Loans</li>
-      </ul>
-    </section>
-
-    <section id="form">
+    <form action="#" method="post" id="loanForm">
       <h2>Loan Application Form</h2>
-      <form id="loanForm">
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" name="fullName" required />
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required />
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required />
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required />
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" />
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required />
 
-        <label for="loanType">Loan Type:</label>
-        <select id="loanType" name="loanType">
-          <option value="Logbook Loan">Logbook Loan</option>
-          <option value="Morti-Fix Loan">Morti-Fix Loan</option>
-          <option value="Asset Financing">Asset Financing</option>
-          <option value="Buy Off Loan">Buy Off Loan</option>
-        </select>
+      <label for="loanAmount">Loan Amount (USD) *</label>
+      <input type="number" id="loanAmount" name="loanAmount" min="100" required />
 
-        <label for="amount">Loan Amount:</label>
-        <input type="number" id="amount" name="amount" required />
+      <label for="message">Additional Information</label>
+      <textarea id="message" name="message" rows="4" placeholder="Optional"></textarea>
 
-        <label for="message">Additional Message:</label>
-        <textarea id="message" name="message" rows="4"></textarea>
-
-        <button type="submit">Send via WhatsApp</button>
-      </form>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Need help or want to apply for a loan? Reach us instantly on WhatsApp:</p>
-      <a class="whatsapp" href="https://wa.me/254798251509" target="_blank">Message us on WhatsApp</a>
-    </section>
+      <button type="submit">Apply Now</button>
+    </form>
   </main>
-
-  <footer>
-    <p>© 2025 Phoenix Capital Limited. All rights reserved.</p>
-  </footer>
-
-  <!-- WhatsApp Form Script -->
-  <script>
-    document.getElementById("loanForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const fullName = document.getElementById("fullName").value;
-      const phone = document.getElementById("phone").value;
-      const email = document.getElementById("email").value;
-      const loanType = document.getElementById("loanType").value;
-      const amount = document.getElementById("amount").value;
-      const message = document.getElementById("message").value;
-
-      const whatsappMessage = `Loan Application:
-Full Name: ${fullName}
-Phone Number: ${phone}
-Email: ${email}
-Loan Type: ${loanType}
-Loan Amount: KES ${amount}
-Message: ${message}`;
-
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappNumber = "254798251509"; // Replace with your number if needed
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-      window.open(whatsappURL, "_blank");
-    });
-  </script>
-
 </body>
 </html>
-   
